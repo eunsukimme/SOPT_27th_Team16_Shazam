@@ -1,0 +1,15 @@
+{
+  "semi": true,
+  "tabWidth": 2,
+  "printWidth": 100,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "importOrder": [
+    "^react$",
+    "(?!^react$)^[a-zA-Z/-]*$",
+    "(?!^@types)(?!^@api)(?!^@components)(?!^@contexts)(?!^@helpers)(?!^@hooks)(?!^@pages)(?!^@stores)(?!^@styles)(?!^@utils)^@([a-zA-Z]*)(.*)$",
+    "^(@types|@api|@components|@contexts|@helpers|@hooks|@pages|@stores|@styles|@utils)(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": false
+}
