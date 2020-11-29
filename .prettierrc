@@ -11,5 +11,6 @@
     "^(@types|@api|@components|@contexts|@helpers|@hooks|@pages|@stores|@styles|@utils)(.*)$",
     "^[./]"
   ],
-  "importOrderSeparation": false
+  "importOrderSeparation": false,
+  "endOfLine":"auto"
 }
