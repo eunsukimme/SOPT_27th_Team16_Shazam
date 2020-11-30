@@ -1,5 +1,6 @@
 .button {
   padding: 45px 42px;
+  margin: 0 20px 0 0;
 
   font-weight: bold;
   font-size: 20px;
@@ -7,4 +8,8 @@
 
   color: #000000;
   background: #ffffff;
+
+  word-break: keep-all;
+  white-space: nowrap;
+  cursor: pointer;
 }
