@@ -1,13 +1,27 @@
 import { BrowserRouter, Route } from 'react-router-dom';
+import Styled from 'styled-components';
 
+import Header from './containers/common/Header';
 import ListPage from './pages/ListPage';
 import MainPage from './pages/MainPage';
+
+const FontWrap = Styled.div`
+  @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+  * { 
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; 
+    font-style: normal;
+    font-weight: bold;
+  }
+`;
 
 function App() {
   return (
     <BrowserRouter>
-      <Route exact path={'/'} component={MainPage} />
-      <Route path={'/list/:id'} component={ListPage} />
+      <FontWrap>
+        <Header />
+        <Route exact path={'/'} component={MainPage} />
+        <Route path={'/list/:id'} component={ListPage} />
+      </FontWrap>
     </BrowserRouter>
   );
 }

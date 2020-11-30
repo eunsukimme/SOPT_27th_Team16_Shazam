@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import Styled from 'styled-components';
 
-import MusicHeader from '../components/MusicHeader';
+import MusicHeader from '../../components/list/MusicHeader';
 
 const MusicListWrap = Styled.div`
   max-width: 375px;
