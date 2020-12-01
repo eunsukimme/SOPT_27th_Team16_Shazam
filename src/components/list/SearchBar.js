@@ -15,6 +15,7 @@ const SearchBarWrap = Styled.div`
     font-size: 20px;
     font-weight: normal;
     position: relative;
+    width: 250px;
     left: 30px;
     bottom: 15px;
 
