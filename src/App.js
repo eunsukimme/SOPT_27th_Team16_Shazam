@@ -1,15 +1,27 @@
-import HomePage from '@pages/Home';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Header from '@components/molecules/Header';
+import ListPage from '@pages/ListPage';
+import MainPage from '@pages/MainPage';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Styled from 'styled-components';
+
+const FontWrap = Styled.div`
+  @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+  * { 
+    font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; 
+    font-style: normal;
+    font-weight: bold;
+  }
+`;
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <FontWrap>
+        <Header />
+        <Route exact path={'/'} component={MainPage} />
+        <Route path={'/list/:id'} component={ListPage} />
+      </FontWrap>
+    </BrowserRouter>
   );
 }
 

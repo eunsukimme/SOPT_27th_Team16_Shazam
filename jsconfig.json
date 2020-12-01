@@ -5,7 +5,8 @@
     "jsx": "react",
     "paths": {
       "@pages/*": ["./src/pages/*"],
-      "@components/*": ["./src/components/*"]
+      "@components/*": ["./src/components/*"],
+      "@containers/*": ["./src/containers/*"]
     }
   },
   "exclude": ["node_modules", "**/node_modules/*", "build"]
