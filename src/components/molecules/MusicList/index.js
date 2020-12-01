@@ -1,7 +1,6 @@
+import MusicHeader from '@components/molecules/MusicHeader';
 import propTypes from 'prop-types';
 import Styled from 'styled-components';
-
-import MusicHeader from '../../components/list/MusicHeader';
 
 const MusicListWrap = Styled.div`
   background: white;

@@ -1,14 +1,47 @@
-import Image from '@components/atoms/Image/index';
+import SearchIcon from '@images/search.svg';
+import Styled from 'styled-components';
 
-import styles from './index.module.css';
+const SearchBarWrap = Styled.div`
+  box-sizing: border-box;
+  width: 420px;
+  height: 90px;
+  border-radius: 100px;
+  background-color: #EEEEEE;
 
-const SearchBar = () => {
+  input {
+    border: none;
+    background: none;
+    font-size: 20px;
+    font-weight: normal;
+    position: relative;
+    width: 250px;
+    left: 30px;
+    bottom: 15px;
+
+    ::placeholder {
+      color: #7A7A7A;
+    }
+    :focus {
+      outline: none;
+    }
+  }
+
+  img {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    left: 70px;
+    top: 10px;
+  }
+`;
+
+function SearchBar() {
   return (
-    <div className={styles.searchbar__wrapper}>
-      <div className={styles.searchbar__input}>음악 검색</div>
-      <Image src={`${process.env.PUBLIC_URL}/images/magnifier.svg`} width="48px" height="48px" />
-    </div>
+    <SearchBarWrap>
+      <input placeholder={'음악 검색'}></input>
+      <img src={SearchIcon} alt="" />
+    </SearchBarWrap>
   );
-};
+}
 
 export default SearchBar;

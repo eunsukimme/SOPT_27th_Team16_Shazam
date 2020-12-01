@@ -1,9 +1,8 @@
+import IconButton from '@components/atoms/IconButton';
+import DownButton from '@images/downButton.svg';
 import propTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Styled from 'styled-components';
-
-import DownButton from '../../images/downButton.svg';
-import IconButton from './IconButton';
 
 const MusicHeaderWrap = Styled.div`
   height: 122px;

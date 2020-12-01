@@ -1,5 +1,5 @@
-import ListNav from '../containers/list/ListNav';
-import MusicList from '../containers/list/MusicList';
+import ListNav from '@components/molecules/ListNav';
+import MusicList from '@components/molecules/MusicList';
 
 function ListPage() {
   const list = ['지금 가장 많이 검색한', '20대 인기 순위', '해외 인기 순위', '지금 가장 많이 듣는'];

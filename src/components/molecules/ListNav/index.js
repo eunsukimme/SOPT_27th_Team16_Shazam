@@ -1,9 +1,8 @@
+import { Mobile, PC } from '@components/atoms/MediaQuery';
+import NavButton from '@components/atoms/NavButton';
 import propTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import Styled from 'styled-components';
-
-import { Mobile, PC } from '../../components/common/MediaQuery';
-import NavButton from '../../components/list/NavButton';
 
 const ListNavWrap = Styled.div`
   margin: 0;

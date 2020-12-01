@@ -1,9 +1,8 @@
+import Header from '@components/molecules/Header';
+import ListPage from '@pages/ListPage';
+import MainPage from '@pages/MainPage';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Styled from 'styled-components';
-
-import Header from './containers/common/Header';
-import ListPage from './pages/ListPage';
-import MainPage from './pages/MainPage';
 
 const FontWrap = Styled.div`
   @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
