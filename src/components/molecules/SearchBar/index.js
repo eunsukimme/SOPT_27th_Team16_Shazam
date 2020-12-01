@@ -17,6 +17,7 @@ const SearchBarWrap = Styled.div`
     width: 250px;
     left: 30px;
     bottom: 15px;
+    caret-color: #0993FF;
 
     ::placeholder {
       color: #7A7A7A;
@@ -25,6 +26,7 @@ const SearchBarWrap = Styled.div`
       outline: none;
     }
   }
+
 
   img {
     width: 70px;
@@ -36,9 +38,18 @@ const SearchBarWrap = Styled.div`
 `;
 
 function SearchBar() {
+  const focused = (event) => {
+    const wrap = event.currentTarget.parentElement;
+    wrap.style.cssText = 'box-shadow: 0px 2px 10px 0px #0993FF';
+  };
+  const nonFocused = (event) => {
+    const wrap = event.currentTarget.parentElement;
+    wrap.style.cssText = 'box-shadow: none';
+  };
+
   return (
     <SearchBarWrap>
-      <input placeholder={'음악 검색'}></input>
+      <input placeholder={'음악 검색'} onMouseEnter={focused} onMouseLeave={nonFocused}></input>
       <img src={SearchIcon} alt="" />
     </SearchBarWrap>
   );

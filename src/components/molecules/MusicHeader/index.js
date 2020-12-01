@@ -1,4 +1,5 @@
 import IconButton from '@components/atoms/IconButton';
+import { Mobile, PC } from '@components/atoms/MediaQuery';
 import DownButton from '@images/downButton.svg';
 import propTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
@@ -15,8 +16,6 @@ const MusicHeaderWrap = Styled.div`
   padding-left: 20px;
 
   .title {
-    font-size: 24px;
-    line-height: 36px;
     color: #0993FF;
     display: flex;
     flex-direction: row;
@@ -24,8 +23,6 @@ const MusicHeaderWrap = Styled.div`
   }
 
   .subtitle {
-    font-size: 16px;
-    line-height: 24px;
     color: #636363;
     opacity: 0.4;
   }
@@ -43,11 +40,23 @@ function MusicHeader({ list, match }) {
 
   return (
     <MusicHeaderWrap>
-      <div className="title">
-        {title[id]}
-        <IconButton imgSrc={DownButton} width={'48px'} height={'48px'} />
-      </div>
-      <div className="subtitle">{subtitle[id]}</div>
+      <Mobile>
+        <div className="title" style={{ fontSize: '24px' }}>
+          {title[id]}
+          <IconButton imgSrc={DownButton} width={'48px'} height={'48px'} />
+        </div>
+        <div className="subtitle" style={{ fontSize: '16px' }}>
+          {subtitle[id]}
+        </div>
+      </Mobile>
+      <PC>
+        <div className="title" style={{ fontSize: '40px', paddingTop: '40px' }}>
+          {title[id]}
+        </div>
+        <div className="subtitle" style={{ fontSize: '24px' }}>
+          {subtitle[id]}
+        </div>
+      </PC>
     </MusicHeaderWrap>
   );
 }
