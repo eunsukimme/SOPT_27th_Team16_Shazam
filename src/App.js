@@ -1,5 +1,5 @@
 import Header from '@components/molecules/Header';
-import ListPage from '@pages/ListPage';
+import ListPage from '@pages/ListPage/index';
 import MainPage from '@pages/MainPage';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Styled from 'styled-components';

@@ -15,6 +15,15 @@ function PC({ children }) {
   return <>{isPC && children}</>;
 }
 
+const breakpoints = {
+  mobile: '1200px',
+  pc: '1920px',
+};
+
+export const mediaQueries = (key) => {
+  return (style) => `@media (max-width: ${breakpoints[key]}) { ${style} }`;
+};
+
 Mobile.propTypes = {
   children: propTypes.object,
 };
