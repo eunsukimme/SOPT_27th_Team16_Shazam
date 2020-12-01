@@ -3,6 +3,7 @@ import Image from '@components/atoms/Image';
 import { mediaQueries } from '@components/atoms/MediaQuery';
 import Text from '@components/atoms/Text';
 import Card from '@components/molecules/Card/index';
+import Footer from '@components/molecules/Footer/index';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -69,6 +70,7 @@ const Wrapper = styled.div`
   }
 
   .home__chart__container {
+    margin: 0 0 290px 0;
     display: flex;
     flex-direction: column;
   }
@@ -154,6 +156,7 @@ const HomePage = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </Wrapper>
   );
 };
