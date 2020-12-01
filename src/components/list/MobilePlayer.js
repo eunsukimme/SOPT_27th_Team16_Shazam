@@ -1,13 +1,13 @@
 //import propTypes from 'prop-types';
+import IconButton from '@components/atoms/IconButton';
+import MobilePlayIC from '@images/mobile_play_icon.svg';
 import Styled from 'styled-components';
 
-import MobilePlayIC from '../../images/mobile_play_icon.svg';
 import MobileSkipIC from '../../images/mobile_skip_next_icon.svg';
-import IconButton from './IconButton';
 
 const MobilePlayerWarp = Styled.div`
-position: absolute;
-  min-height: calc(100% - 120px);
+  position: fixed; 
+  bottom: 0;
   display: flex;
   flex-direction: column-reverse;
   
@@ -21,7 +21,7 @@ position: absolute;
     background-color: #ffffff;
     display: flex;
     align-items: center;
-    width: 375px;
+    width: 1200px;
     
   }
 
@@ -38,8 +38,8 @@ position: absolute;
   .mobile-player__suptitle {
     font-size: 14px;
     font-weight: 400;
-    opacity: 0.6;
     margin: 0px;
+    color: #636363;
     }
 `;
 

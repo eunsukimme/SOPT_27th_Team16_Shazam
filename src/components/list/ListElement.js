@@ -1,15 +1,27 @@
-//import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import Styled from 'styled-components';
 
 const ListElementWarp = Styled.div`
+
+
 .list-element {
     left: 0px;
-    height: 80px;
+    
     background: #FFFFFF;
     display: flex;
     align-items: center;
-    background-color: #ffffff;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    width 100%;
+    
+    :focus {
+      border: 0;
+      outline: 0;
+      background: rgba(196, 196, 196, 0.15);
+
     }
+  }
 
     .list-element__ranking-number {
         margin-left: 20px;
@@ -20,41 +32,53 @@ const ListElementWarp = Styled.div`
         width: 60px;
         height: 60px;
         left: 52px;
-        background: #C4C4C4;;
+        background: #C4C4C4;
+        
     }
 
     .list-element__title {
-        font-size: 20px;
+        text-align: left;
         font-weight: 700;
         display: flex;
         flex-direction: column; 
         }
 
     .list-element__suptitle {
-        font-size: 16px;
+      color: #636363;
         font-weight: 400;
-        opacity: 0.6;
         }
 
 
 `;
 
-function ListElement() {
+function ListElement({ onClickFunc, height, fontSize, subfontSize, rankfontSize }) {
   return (
     <ListElementWarp>
-      <div className="list-element">
-        <p className="list-element__ranking-number">1</p>
+      <button onClick={onClickFunc} style={{ height: height }} className="list-element">
+        <p style={{ fontSize: rankfontSize }} className="list-element__ranking-number">
+          1
+        </p>
         <div className="list-element__img-box"></div>
         <div className="list-element__title-box">
-          <span className="list-element__title">title</span>
-          <span className="list-element__subtitle">suptitle</span>
+          <span style={{ fontSize: fontSize }} className="list-element__title">
+            title
+          </span>
+          <span style={{ fontSize: subfontSize }} className="list-element__subtitle">
+            suptitle
+          </span>
         </div>
         <div className="list-element__show-more-button"></div>
-      </div>
+      </button>
     </ListElementWarp>
   );
 }
 
-//ListElement.propTypes = {};
+ListElement.propTypes = {
+  onClickFunc: propTypes.function,
+  height: propTypes.number,
+  fontSize: propTypes.string,
+  subfontSize: propTypes.string,
+  rankfontSize: propTypes.string,
+};
 
 export default ListElement;
