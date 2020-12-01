@@ -1,4 +1,4 @@
-import ListNav from '@components/molecules/ListNav';
+import ListNav from '@components/molecules/ListNav/index';
 import MusicList from '@components/molecules/MusicList';
 
 function ListPage() {
