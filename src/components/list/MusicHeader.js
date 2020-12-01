@@ -7,6 +7,7 @@ import IconButton from './IconButton';
 
 const MusicHeaderWrap = Styled.div`
   height: 122px;
+  max-width: 1440px;
   background: white;
   display: flex;
   flex-direction: column;

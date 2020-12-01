@@ -10,18 +10,13 @@ import PCPlayer from '../../components/list/PCPlayer';
 import PCAllPlayIC from '../../images/pc_allplay_ic.svg';
 
 const MusicListWrap = Styled.div`
-  
-  .mobile {
-  max-width: 375px;
+
+  background: white;
   display: flex;
   flex-direction: column;
-  }
+  margin: auto;
+  max-width: 1460px;
 
-  .pc {
-    max-width: 100%
-    display: flex;
-    flex-direction: column;
-  }
 `;
 
 function MusicList({ list }) {

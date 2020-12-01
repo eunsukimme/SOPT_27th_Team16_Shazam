@@ -3,8 +3,8 @@ import { withRouter } from 'react-router-dom';
 import Styled from 'styled-components';
 
 import { Mobile, PC } from '../../components/common/MediaQuery';
+import HeaderButton from '../../components/list/HeaderButton';
 import IconButton from '../../components/list/IconButton';
-import NavButton from '../../components/list/NavButton';
 import SearchBar from '../../components/list/SearchBar';
 import BarIcon from '../../images/bar.svg';
 import LogoIcon from '../../images/logo.svg';
@@ -66,15 +66,9 @@ function Header({ history }) {
             height={'50px'}
             onClickFunc={() => history.push('/')}
           />
-          <NavButton text={'내 라이브러리'} width={'200px'} height={'120px'} fontSize={'20px'} />
-          <NavButton text={'APP'} width={'200px'} height={'120px'} fontSize={'20px'} />
-          <NavButton
-            text={'차트'}
-            width={'200px'}
-            height={'120px'}
-            fontSize={'20px'}
-            onClickFunc={() => history.push('/list/0')}
-          />
+          <HeaderButton text={'내 라이브러리'} />
+          <HeaderButton text={'APP'} />
+          <HeaderButton text={'차트'} onClickFunc={() => history.push('/list/0')} />
           <SearchBar />
         </div>
       </PC>

@@ -14,6 +14,10 @@ const ListNavWrap = Styled.div`
   }
   -ms-overflow-style: none;
   scrollbar-width: none;
+  background: white;
+  box-shadow: 
+      inset 0px 10px 10px -10px rgba(0, 0, 0, 0.3),
+      inset 0px -2px 2px -2px rgba(0, 0, 0, 0.3);
 
   .mobile {
     display: flex;
@@ -24,6 +28,8 @@ const ListNavWrap = Styled.div`
     display: flex;
     flex-direction: row;
     height: 90px;
+    max-width: 1440px;
+    justify-content: center;
   }
 `;
 
@@ -51,8 +57,8 @@ function ListNav({ list, history }) {
             return (
               <NavButton
                 text={text}
-                width={'160px'}
-                height={'40px'}
+                width={'240px'}
+                height={'90px'}
                 key={i}
                 fontSize={'20px'}
                 onClickFunc={() => history.push(`/list/${i}`)}
