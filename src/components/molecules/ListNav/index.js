@@ -28,7 +28,7 @@ const ListNavWrap = Styled.div`
     flex-direction: row;
     height: 90px;
     max-width: 1440px;
-    justify-content: center;
+    margin: auto;
   }
 `;
 
