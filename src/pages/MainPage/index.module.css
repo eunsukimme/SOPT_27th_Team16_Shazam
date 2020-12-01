@@ -2,7 +2,7 @@
   padding: 110px 0 0 0;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .home__main__container--left {

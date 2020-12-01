@@ -1,6 +1,6 @@
-import Button from '@components/atoms/Button/index';
-import Image from '@components/atoms/Image/index';
-import Text from '@components/atoms/Text/index';
+import Button from '@components/atoms/Button';
+import Image from '@components/atoms/Image';
+import Text from '@components/atoms/Text';
 
 import styles from './index.module.css';
 
@@ -12,7 +12,7 @@ const HomePage = () => {
           src={`${process.env.PUBLIC_URL}/images/main.svg`}
           width="100%"
           height="100%"
-          style={{ position: 'absolute', top: 0, left: 0 }}
+          style={{ position: 'absolute', top: 0, left: 0, maxHeight: '667px' }}
         />
       </div>
       <div className={styles['home__main__container--right']}>
