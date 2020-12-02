@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 import Styled from 'styled-components';
 
 const MusicHeaderWrap = Styled.div`
-  height: 122px;
   max-width: 1440px;
   background: white;
   display: flex;
@@ -14,6 +13,14 @@ const MusicHeaderWrap = Styled.div`
   justify-content: center;
   align-items: left;
   padding-left: 20px;
+
+  .mobile {
+    height: 122px;
+  }
+
+  .pc {
+    height: 183px;
+  }
 
   .title {
     color: #0993FF;
@@ -40,20 +47,20 @@ function MusicHeader({ list, match }) {
 
   return (
     <MusicHeaderWrap>
-      <Mobile>
-        <div className="title" style={{ fontSize: '24px' }}>
+      <Mobile className="mobile">
+        <div className="title" style={{ fontSize: '24px', marginTop: '20px' }}>
           {title[id]}
           <IconButton imgSrc={DownButton} width={'48px'} height={'48px'} />
         </div>
-        <div className="subtitle" style={{ fontSize: '16px' }}>
+        <div className="subtitle" style={{ fontSize: '16px', marginBottom: '16px' }}>
           {subtitle[id]}
         </div>
       </Mobile>
-      <PC>
-        <div className="title" style={{ fontSize: '40px', paddingTop: '40px' }}>
+      <PC className="pc">
+        <div className="title" style={{ fontSize: '40px', marginTop: '40px' }}>
           {title[id]}
         </div>
-        <div className="subtitle" style={{ fontSize: '24px' }}>
+        <div className="subtitle" style={{ fontSize: '24px', marginBottom: '40px' }}>
           {subtitle[id]}
         </div>
       </PC>

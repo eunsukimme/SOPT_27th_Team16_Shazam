@@ -27,6 +27,7 @@ function MusicList({ list }) {
         <MobilePlayer />
       </Mobile>
       <PC>
+        <MusicHeader list={list} />
         <IconButton imgSrc={PCAllPlayIC} width={'127px'} height={'60px'} />
         <ListElement
           height={'140px'}
