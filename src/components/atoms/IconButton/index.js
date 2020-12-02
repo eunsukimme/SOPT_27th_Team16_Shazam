@@ -9,6 +9,7 @@ const IconButtonWrap = Styled.div`
     border-style: none;
     background: white;
     outline: none;
+    cursor: pointer;
   }
 `;
 
