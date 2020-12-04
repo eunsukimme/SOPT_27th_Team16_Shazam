@@ -1,5 +1,6 @@
 //import propTypes from 'prop-types';
 import IconButton from '@components/atoms/IconButton';
+import Range from '@components/atoms/Range/index.js';
 import Styled from 'styled-components';
 
 import PCPlayIC from '../../images/pc_playing_ic.svg';
@@ -64,6 +65,7 @@ function PCPlayer() {
         <IconButton imgSrc={PCPrevIC} width={'51px'} height={'48px'} />
         <IconButton imgSrc={PCPlayIC} width={'51px'} height={'48px'} />
         <IconButton imgSrc={PCSkipIC} width={'57px'} height={'48px'} />
+        <Range />
       </div>
     </PCPlayerWarp>
   );
