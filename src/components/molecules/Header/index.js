@@ -6,8 +6,11 @@ import BarIcon from '@images/bar.svg';
 import LogoIcon from '@images/logo.svg';
 import SearchIcon from '@images/search.svg';
 import propTypes from 'prop-types';
+import { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import Styled from 'styled-components';
+
+import Hamburger from '../Hamburger/index';
 
 const HeaderWrap = Styled.div`
   background: white;
@@ -39,6 +42,12 @@ const HeaderWrap = Styled.div`
 `;
 
 function Header({ history }) {
+  const [open, setOpen] = useState(true);
+  if (!open) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'visible';
+  }
   return (
     <HeaderWrap>
       <Mobile>
@@ -53,9 +62,15 @@ function Header({ history }) {
           </div>
           <div className="header--mobile__nav">
             <IconButton imgSrc={SearchIcon} width={'48px'} height={'48px'} />
-            <IconButton imgSrc={BarIcon} width={'48px'} height={'48px'} />
+            <IconButton
+              onClickFunc={() => setOpen(!open)}
+              imgSrc={BarIcon}
+              width={'48px'}
+              height={'48px'}
+            />
           </div>
         </div>
+        <Hamburger open={open} setOpen={setOpen} />
       </Mobile>
       <PC>
         <div className="header--PC">
