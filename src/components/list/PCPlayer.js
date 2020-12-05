@@ -1,6 +1,6 @@
-//import propTypes from 'prop-types';
 import IconButton from '@components/atoms/IconButton';
 import Range from '@components/atoms/Range/index.js';
+import propTypes from 'prop-types';
 import Styled from 'styled-components';
 
 import PCPlayIC from '../../images/pc_playing_ic.svg';
@@ -53,14 +53,14 @@ const PCPlayerWarp = Styled.div`
     }
 `;
 
-function PCPlayer() {
+function PCPlayer({ title, subTitle }) {
   return (
     <PCPlayerWarp>
       <div className="PC-Player">
         <div className="PC-Player__img-box"></div>
         <div className="PC-Player__title-box">
-          <span className="PC-Player__title">title</span>
-          <span className="PC-Player__subtitle">suptitle</span>
+          <span className="PC-Player__title">{title}</span>
+          <span className="PC-Player__subtitle">{subTitle}</span>
         </div>
         <IconButton imgSrc={PCPrevIC} width={'51px'} height={'48px'} />
         <IconButton imgSrc={PCPlayIC} width={'51px'} height={'48px'} />
@@ -71,6 +71,9 @@ function PCPlayer() {
   );
 }
 
-//PCPlayer.propTypes = {};
+PCPlayer.propTypes = {
+  title: propTypes.string,
+  subTitle: propTypes.string,
+};
 
 export default PCPlayer;

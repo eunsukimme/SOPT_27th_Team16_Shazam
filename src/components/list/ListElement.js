@@ -51,20 +51,33 @@ const ListElementWarp = Styled.div`
 
 `;
 
-function ListElement({ onClickFunc, height, fontSize, subfontSize, rankfontSize }) {
+function ListElement({
+  order,
+  title,
+  subTitle,
+  onClickFunc,
+  height,
+  fontSize,
+  subfontSize,
+  rankfontSize,
+}) {
   return (
     <ListElementWarp>
-      <button onClick={onClickFunc} style={{ height: height }} className="list-element">
+      <button
+        onClick={() => onClickFunc({ title, subTitle })}
+        style={{ height: height }}
+        className="list-element"
+      >
         <p style={{ fontSize: rankfontSize }} className="list-element__ranking-number">
-          1
+          {order}
         </p>
         <div className="list-element__img-box"></div>
         <div className="list-element__title-box">
           <span style={{ fontSize: fontSize }} className="list-element__title">
-            title
+            {title}
           </span>
           <span style={{ fontSize: subfontSize }} className="list-element__subtitle">
-            suptitle
+            {subTitle}
           </span>
         </div>
         <div className="list-element__show-more-button"></div>
@@ -74,6 +87,9 @@ function ListElement({ onClickFunc, height, fontSize, subfontSize, rankfontSize 
 }
 
 ListElement.propTypes = {
+  order: propTypes.number,
+  title: propTypes.string,
+  subTitle: propTypes.string,
   onClickFunc: propTypes.function,
   height: propTypes.number,
   fontSize: propTypes.string,
