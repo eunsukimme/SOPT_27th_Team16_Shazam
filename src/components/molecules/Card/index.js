@@ -1,6 +1,7 @@
 import Image from '@components/atoms/Image/index';
 import Text from '@components/atoms/Text/index';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -11,12 +12,14 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Card = ({ src, text, wrapperStyle, imageStyle, textStyle }) => {
+const Card = ({ src, text, wrapperStyle, imageStyle, textStyle, path }) => {
   return (
-    <Wrapper style={wrapperStyle}>
-      <Image src={src} style={imageStyle}></Image>
-      <Text style={textStyle}>{text}</Text>
-    </Wrapper>
+    <Link to={`/list/${path}`} style={{ textDecoration: 'none' }}>
+      <Wrapper style={wrapperStyle}>
+        <Image src={src} style={imageStyle}></Image>
+        <Text style={textStyle}>{text}</Text>
+      </Wrapper>
+    </Link>
   );
 };
 
@@ -26,6 +29,7 @@ Card.propTypes = {
   wrapperStyle: PropTypes.object,
   imageStyle: PropTypes.object,
   textStyle: PropTypes.object,
+  path: PropTypes.number,
 };
 
 export default Card;

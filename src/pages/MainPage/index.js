@@ -137,8 +137,9 @@ const HomePage = () => {
       <div className="home__chart__container">
         <Text className="home__chart__container--title">Shazam 차트 {'>'}</Text>
         <div className="home__chart__block">
-          {cards.map((card) => (
+          {cards.map((card, index) => (
             <Card
+              path={index}
               key={card.src}
               imageStyle={{
                 width: '100%',
