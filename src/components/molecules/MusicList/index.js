@@ -6,6 +6,7 @@ import PCPlayer from '@components/list/PCPlayer';
 import MusicHeader from '@components/molecules/MusicHeader';
 import PCAllPlayIC from '@images/pc_allplay_ic.svg';
 import propTypes from 'prop-types';
+import { useState } from 'react';
 import Styled from 'styled-components';
 
 const MusicListWrap = Styled.div`
@@ -19,23 +20,32 @@ const MusicListWrap = Styled.div`
 `;
 
 function MusicList({ list }) {
+  const [open, setOpen] = useState(false);
+
   return (
     <MusicListWrap>
       <Mobile>
         <MusicHeader list={list} />
-        <ListElement height={'80px'} fontSize={'20px'} subfontSize={'16px'} rankfontSize={'20px'} />
-        <MobilePlayer />
+        <ListElement
+          setOpen={setOpen}
+          height={'80px'}
+          fontSize={'20px'}
+          subfontSize={'16px'}
+          rankfontSize={'20px'}
+        />
+        <MobilePlayer open={open} />
       </Mobile>
       <PC>
         <MusicHeader list={list} />
         <IconButton imgSrc={PCAllPlayIC} width={'127px'} height={'60px'} />
         <ListElement
+          setOpen={setOpen}
           height={'140px'}
           fontSize={'24px'}
           subfontSize={'20px'}
           rankfontSize={'30px'}
         />
-        <PCPlayer />
+        <PCPlayer open={open} />
       </PC>
     </MusicListWrap>
   );

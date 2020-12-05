@@ -12,7 +12,8 @@ const MobilePlayerWarp = Styled.div`
   flex-direction: column-reverse;
   
   
-
+  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+  transition: transform 0.3s ease-in-out;
   
   .mobile-player {
     margin-top: auto;

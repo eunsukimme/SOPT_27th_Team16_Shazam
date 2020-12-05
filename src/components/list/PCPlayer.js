@@ -1,6 +1,7 @@
 //import propTypes from 'prop-types';
 import IconButton from '@components/atoms/IconButton';
 import Range from '@components/atoms/Range/index.js';
+import propTypes from 'prop-types';
 import Styled from 'styled-components';
 
 import PCPlayIC from '../../images/pc_playing_ic.svg';
@@ -14,6 +15,9 @@ const PCPlayerWarp = Styled.div`
   flex-direction: column-reverse;
   width: 100%;
   
+  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+  transition: transform 0.3s ease-in-out;
+
   .PC-Player {
     margin-top: auto;
     border-top: 1px #e5e5e5 solid;
@@ -53,9 +57,9 @@ const PCPlayerWarp = Styled.div`
     }
 `;
 
-function PCPlayer() {
+function PCPlayer({ open }) {
   return (
-    <PCPlayerWarp>
+    <PCPlayerWarp open={open}>
       <div className="PC-Player">
         <div className="PC-Player__img-box"></div>
         <div className="PC-Player__title-box">
@@ -71,6 +75,8 @@ function PCPlayer() {
   );
 }
 
-//PCPlayer.propTypes = {};
+PCPlayer.propTypes = {
+  open: propTypes.bool,
+};
 
 export default PCPlayer;
