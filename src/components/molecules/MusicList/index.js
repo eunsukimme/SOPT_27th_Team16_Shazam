@@ -48,8 +48,20 @@ function MusicList({ list }) {
     <MusicListWrap>
       <Mobile>
         <MusicHeader list={list} />
-        <ListElement height={'80px'} fontSize={'20px'} subfontSize={'16px'} rankfontSize={'20px'} />
-        <MobilePlayer />
+        {musics.map((music, index) => (
+          <ListElement
+            onClickFunc={handleClickMusic}
+            key={music.title}
+            height={'80px'}
+            fontSize={'20px'}
+            subfontSize={'16px'}
+            rankfontSize={'20px'}
+            order={index}
+            title={music.title}
+            subTitle={music.subTitle}
+          />
+        ))}
+        <MobilePlayer title={selectedMusic.title} subTitle={selectedMusic.subTitle} />
       </Mobile>
 
       <PC>
