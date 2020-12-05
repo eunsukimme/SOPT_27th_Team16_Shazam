@@ -1,6 +1,7 @@
 //import propTypes from 'prop-types';
 import IconButton from '@components/atoms/IconButton';
 import MobilePlayIC from '@images/mobile_play_icon.svg';
+import propTypes from 'prop-types';
 import Styled from 'styled-components';
 
 import MobileSkipIC from '../../images/mobile_skip_next_icon.svg';
@@ -43,21 +44,24 @@ const MobilePlayerWarp = Styled.div`
     }
 `;
 
-function MobilePlayer() {
+function MobilePlayer({ title, subTitle }) {
   return (
     <MobilePlayerWarp>
       <div className="mobile-player">
         <IconButton imgSrc={MobilePlayIC} width={'24px'} height={'24px'} />
         <IconButton imgSrc={MobileSkipIC} width={'24px'} height={'24px'} />
         <div className="mobile-player__title-box">
-          <span className="mobile-player__title">title</span>
-          <span className="mobile-player__subtitle">suptitle</span>
+          <span className="mobile-player__title">{title}</span>
+          <span className="mobile-player__subtitle">{subTitle}</span>
         </div>
       </div>
     </MobilePlayerWarp>
   );
 }
 
-//MobilePlayer.propTypes = {};
+MobilePlayer.propTypes = {
+  title: propTypes.string,
+  subTitle: propTypes.string,
+};
 
 export default MobilePlayer;
