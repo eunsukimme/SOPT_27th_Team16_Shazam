@@ -19,8 +19,31 @@ const MusicListWrap = Styled.div`
 
 `;
 
+const musics = [
+  {
+    title: 'title',
+    subTitle: 'subTitle',
+  },
+  {
+    title: 'title2',
+    subTitle: 'subTitle2',
+  },
+  {
+    title: 'title3',
+    subTitle: 'subTitle3',
+  },
+];
+
 function MusicList({ list }) {
   const [open, setOpen] = useState(false);
+  const [selectedMusic, setSelectedMusic] = useState({
+    title: '',
+    subTitle: '',
+  });
+
+  const handleClickMusic = ({ title, subTitle }) => {
+    setSelectedMusic({ title, subTitle });
+  };
 
   return (
     <MusicListWrap>
@@ -35,17 +58,26 @@ function MusicList({ list }) {
         />
         <MobilePlayer open={open} />
       </Mobile>
+
       <PC>
         <MusicHeader list={list} />
         <IconButton imgSrc={PCAllPlayIC} width={'127px'} height={'60px'} />
-        <ListElement
-          setOpen={setOpen}
-          height={'140px'}
-          fontSize={'24px'}
-          subfontSize={'20px'}
-          rankfontSize={'30px'}
-        />
-        <PCPlayer open={open} />
+        {musics.map((music, index) => (
+          <ListElement
+            onClickFunc={handleClickMusic}
+            key={music.title}
+            height={'140px'}
+            fontSize={'24px'}
+            subfontSize={'20px'}
+            rankfontSize={'30px'}
+            order={index}
+            title={music.title}
+            subTitle={music.subTitle}
+          />
+        ))}
+        {selectedMusic.title && (
+          <PCPlayer title={selectedMusic.title} subTitle={selectedMusic.subTitle} />
+        )}
       </PC>
     </MusicListWrap>
   );

@@ -1,4 +1,3 @@
-//import propTypes from 'prop-types';
 import IconButton from '@components/atoms/IconButton';
 import Range from '@components/atoms/Range/index.js';
 import propTypes from 'prop-types';
@@ -57,14 +56,14 @@ const PCPlayerWarp = Styled.div`
     }
 `;
 
-function PCPlayer({ open }) {
+function PCPlayer({ title, subTitle }) {
   return (
     <PCPlayerWarp open={open}>
       <div className="PC-Player">
         <div className="PC-Player__img-box"></div>
         <div className="PC-Player__title-box">
-          <span className="PC-Player__title">title</span>
-          <span className="PC-Player__subtitle">suptitle</span>
+          <span className="PC-Player__title">{title}</span>
+          <span className="PC-Player__subtitle">{subTitle}</span>
         </div>
         <IconButton imgSrc={PCPrevIC} width={'51px'} height={'48px'} />
         <IconButton imgSrc={PCPlayIC} width={'51px'} height={'48px'} />
@@ -76,7 +75,8 @@ function PCPlayer({ open }) {
 }
 
 PCPlayer.propTypes = {
-  open: propTypes.bool,
+  title: propTypes.string,
+  subTitle: propTypes.string,
 };
 
 export default PCPlayer;
