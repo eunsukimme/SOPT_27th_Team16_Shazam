@@ -45,15 +45,15 @@ const MobilePlayerWarp = Styled.div`
     }
 `;
 
-function MobilePlayer({ open }) {
+function MobilePlayer({ title, open, subTitle }) {
   return (
     <MobilePlayerWarp open={open}>
       <div className="mobile-player">
         <IconButton imgSrc={MobilePlayIC} width={'24px'} height={'24px'} />
         <IconButton imgSrc={MobileSkipIC} width={'24px'} height={'24px'} />
         <div className="mobile-player__title-box">
-          <span className="mobile-player__title">title</span>
-          <span className="mobile-player__subtitle">suptitle</span>
+          <span className="mobile-player__title">{title}</span>
+          <span className="mobile-player__subtitle">{subTitle}</span>
         </div>
       </div>
     </MobilePlayerWarp>
@@ -62,6 +62,8 @@ function MobilePlayer({ open }) {
 
 MobilePlayer.propTypes = {
   open: propTypes.bool,
+  title: propTypes.string,
+  subTitle: propTypes.string,
 };
 
 export default MobilePlayer;
