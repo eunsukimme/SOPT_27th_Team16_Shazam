@@ -4,11 +4,6 @@
       "pre-commit": "lint-staged"
     }
   },
-  "lint-staged": {
-    "./**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ]
-  },
   "name": "shazam",
   "version": "0.1.0",
   "private": true,

@@ -8,13 +8,14 @@ import PCSkipIC from '../../images/pc_skip_next_ic.svg';
 import PCPrevIC from '../../images/pc_skip_previous_ic.svg';
 
 const PCPlayerWarp = Styled.div`
-   position: fixed; 
-   bottom: 0;
+  position: fixed; 
+  bottom: 0;
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
-  
-  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
+  /* transform: translateX(0%); */
+  /* transition: transform 1000ms ease-in-out; */
+  transform: ${({ open }) => (!open ? 'translateY(100%)' : 'translateY(0)')}; 
   transition: transform 0.3s ease-in-out;
 
   .PC-Player {
@@ -56,7 +57,8 @@ const PCPlayerWarp = Styled.div`
     }
 `;
 
-function PCPlayer({ title, subTitle }) {
+function PCPlayer({ title, subTitle, open }) {
+  console.log(open);
   return (
     <PCPlayerWarp open={open}>
       <div className="PC-Player">
@@ -76,6 +78,7 @@ function PCPlayer({ title, subTitle }) {
 
 PCPlayer.propTypes = {
   title: propTypes.string,
+  open: propTypes.bool,
   subTitle: propTypes.string,
 };
 

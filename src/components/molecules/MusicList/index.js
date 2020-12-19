@@ -42,6 +42,11 @@ function MusicList({ list }) {
   });
 
   const handleClickMusic = ({ title, subTitle }) => {
+    if (title === selectedMusic.title) {
+      setOpen(!open);
+    } else {
+      setOpen(true);
+    }
     setSelectedMusic({ title, subTitle });
   };
 
@@ -76,7 +81,7 @@ function MusicList({ list }) {
           />
         ))}
         {selectedMusic.title && (
-          <PCPlayer title={selectedMusic.title} subTitle={selectedMusic.subTitle} />
+          <PCPlayer open={open} title={selectedMusic.title} subTitle={selectedMusic.subTitle} />
         )}
       </PC>
     </MusicListWrap>

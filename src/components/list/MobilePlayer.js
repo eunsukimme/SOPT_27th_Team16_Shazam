@@ -1,6 +1,7 @@
 //import propTypes from 'prop-types';
 import IconButton from '@components/atoms/IconButton';
 import MobilePlayIC from '@images/mobile_play_icon.svg';
+import propTypes from 'prop-types';
 import Styled from 'styled-components';
 
 import MobileSkipIC from '../../images/mobile_skip_next_icon.svg';
@@ -13,7 +14,7 @@ const MobilePlayerWarp = Styled.div`
   
   
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
-  transition: transform 0.3s ease-in-out;
+  transition: transform 1s ease-in-out;
   
   .mobile-player {
     margin-top: auto;
@@ -44,9 +45,9 @@ const MobilePlayerWarp = Styled.div`
     }
 `;
 
-function MobilePlayer() {
+function MobilePlayer({ open }) {
   return (
-    <MobilePlayerWarp>
+    <MobilePlayerWarp open={open}>
       <div className="mobile-player">
         <IconButton imgSrc={MobilePlayIC} width={'24px'} height={'24px'} />
         <IconButton imgSrc={MobileSkipIC} width={'24px'} height={'24px'} />
@@ -59,6 +60,8 @@ function MobilePlayer() {
   );
 }
 
-//MobilePlayer.propTypes = {};
+MobilePlayer.propTypes = {
+  open: propTypes.bool,
+};
 
 export default MobilePlayer;

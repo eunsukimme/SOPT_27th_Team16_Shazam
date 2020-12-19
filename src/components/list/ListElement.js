@@ -6,7 +6,6 @@ const ListElementWarp = Styled.div`
 
 .list-element {
     left: 0px;
-    
     background: #FFFFFF;
     display: flex;
     align-items: center;
@@ -47,8 +46,6 @@ const ListElementWarp = Styled.div`
       color: #636363;
         font-weight: 400;
         }
-
-
 `;
 
 function ListElement({

@@ -7,7 +7,6 @@ const HamburgerWrap = Styled.div`
   flex-flow: column nowrap;
   background-color: #000000;
   position: fixed;
-  position: fixed;
   top:0px;
   z-index:1231321; 
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
