@@ -2,8 +2,12 @@ import IconButton from '@components/atoms/IconButton';
 import { Mobile, PC } from '@components/atoms/MediaQuery';
 import DownButton from '@images/downButton.svg';
 import propTypes from 'prop-types';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Styled from 'styled-components';
+
+import { rankData } from '../../../modules/rank';
 
 const MusicHeaderWrap = Styled.div`
   max-width: 1440px;
@@ -43,7 +47,14 @@ function MusicHeader({ list, match }) {
     '해외에서 가장 인기 있는 트랙',
     '지금 사람들이 가장 많이 듣는 트랙',
   ];
+
+  const rank = ['most', 'twentys', 'foreign', 'now'];
   const id = match.params.id;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(rankData(rank[match.params.id]));
+  }, [match]);
 
   return (
     <MusicHeaderWrap>

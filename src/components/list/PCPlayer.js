@@ -12,7 +12,6 @@ const PCPlayerWarp = Styled.div`
   bottom: 0;
   display: flex;
   flex-direction: column-reverse;
-  width: 100%;
   /* transform: translateX(0%); */
   /* transition: transform 1000ms ease-in-out; */
   transform: ${({ open }) => (!open ? 'translateY(100%)' : 'translateY(0)')}; 
@@ -57,12 +56,20 @@ const PCPlayerWarp = Styled.div`
     }
 `;
 
-function PCPlayer({ title, subTitle, open }) {
-  console.log(open);
+function PCPlayer({ title, subTitle, open, songimageUri }) {
   return (
     <PCPlayerWarp open={open}>
       <div className="PC-Player">
-        <div className="PC-Player__img-box"></div>
+        <div
+          className="PC-Player__img-box"
+          style={{
+            background: `url(${songimageUri})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            height: '50px',
+            width: '50px',
+          }}
+        ></div>
         <div className="PC-Player__title-box">
           <span className="PC-Player__title">{title}</span>
           <span className="PC-Player__subtitle">{subTitle}</span>
@@ -80,6 +87,7 @@ PCPlayer.propTypes = {
   title: propTypes.string,
   open: propTypes.bool,
   subTitle: propTypes.string,
+  songimageUri: propTypes.string,
 };
 
 export default PCPlayer;

@@ -7,6 +7,7 @@ import MusicHeader from '@components/molecules/MusicHeader';
 import PCAllPlayIC from '@images/pc_allplay_ic.svg';
 import propTypes from 'prop-types';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Styled from 'styled-components';
 
 const MusicListWrap = Styled.div`
@@ -19,35 +20,41 @@ const MusicListWrap = Styled.div`
 
 `;
 
-const musics = [
-  {
-    title: 'title',
-    subTitle: 'subTitle',
-  },
-  {
-    title: 'title2',
-    subTitle: 'subTitle2',
-  },
-  {
-    title: 'title3',
-    subTitle: 'subTitle3',
-  },
-];
+// const musics = [
+//   {
+//     title: 'title',
+//     subTitle: 'subTitle',
+//   },
+//   {
+//     title: 'title2',
+//     subTitle: 'subTitle2',
+//   },
+//   {
+//     title: 'title3',
+//     subTitle: 'subTitle3',
+//   },
+// ];
 
 function MusicList({ list }) {
   const [open, setOpen] = useState(false);
   const [selectedMusic, setSelectedMusic] = useState({
     title: '',
     subTitle: '',
+    songimageUri: '',
   });
 
-  const handleClickMusic = ({ title, subTitle }) => {
+  const { rankData } = useSelector(({ rank }) => ({
+    rankData: rank.data,
+  }));
+
+  console.log(rankData);
+  const handleClickMusic = ({ title, subTitle, songimageUri }) => {
     if (title === selectedMusic.title) {
       setOpen(!open);
     } else {
       setOpen(true);
     }
-    setSelectedMusic({ title, subTitle });
+    setSelectedMusic({ title, subTitle, songimageUri });
   };
 
   return (
@@ -67,21 +74,28 @@ function MusicList({ list }) {
       <PC>
         <MusicHeader list={list} />
         <IconButton imgSrc={PCAllPlayIC} width={'127px'} height={'60px'} />
-        {musics.map((music, index) => (
-          <ListElement
-            onClickFunc={handleClickMusic}
-            key={music.title}
-            height={'140px'}
-            fontSize={'24px'}
-            subfontSize={'20px'}
-            rankfontSize={'30px'}
-            order={index}
-            title={music.title}
-            subTitle={music.subTitle}
-          />
-        ))}
+        {rankData &&
+          rankData.map((music, index) => (
+            <ListElement
+              onClickFunc={handleClickMusic}
+              key={music.title}
+              height={'140px'}
+              fontSize={'24px'}
+              subfontSize={'20px'}
+              rankfontSize={'30px'}
+              order={index}
+              title={music.title}
+              subTitle={music.subTitle}
+              songimageUri={music.songimageUri}
+            />
+          ))}
         {selectedMusic.title && (
-          <PCPlayer open={open} title={selectedMusic.title} subTitle={selectedMusic.subTitle} />
+          <PCPlayer
+            open={open}
+            title={selectedMusic.title}
+            subTitle={selectedMusic.subTitle}
+            songimageUri={selectedMusic.songimageUri}
+          />
         )}
       </PC>
     </MusicListWrap>

@@ -31,8 +31,8 @@ const ListElementWarp = Styled.div`
         width: 60px;
         height: 60px;
         left: 52px;
-        background: #C4C4C4;
-        
+        background-poistion: center;
+        background-size: cover;
     }
 
     .list-element__title {
@@ -57,18 +57,26 @@ function ListElement({
   fontSize,
   subfontSize,
   rankfontSize,
+  songimageUri,
 }) {
   return (
     <ListElementWarp>
       <button
-        onClick={() => onClickFunc({ title, subTitle })}
+        onClick={() => onClickFunc({ title, subTitle, songimageUri })}
         style={{ height: height }}
         className="list-element"
       >
         <p style={{ fontSize: rankfontSize }} className="list-element__ranking-number">
           {order}
         </p>
-        <div className="list-element__img-box"></div>
+        <div
+          className="list-element__img-box"
+          style={{
+            background: `url(${songimageUri})`,
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+          }}
+        ></div>
         <div className="list-element__title-box">
           <span style={{ fontSize: fontSize }} className="list-element__title">
             {title}
@@ -92,6 +100,7 @@ ListElement.propTypes = {
   fontSize: propTypes.string,
   subfontSize: propTypes.string,
   rankfontSize: propTypes.string,
+  songimageUri: propTypes.string,
 };
 
 export default ListElement;
